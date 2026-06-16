@@ -1,0 +1,26 @@
+Browser manda um request para o servidor
+ -> React responde com o index.html
+ -> index.html é carregado no navegador
+ -> index.html no navegador requisita os arquivos js para o servidor 
+ -> React responde com o arquivo contendo todo o javascript gerado a partir dos componentes criados 
+
+ todo index.html vem com a div com um id="root"
+
+ dentro do react, em um arquivo que será chamado de index.jsx ou main.jsx, vai ter algum trecho com esse código
+
+ const rootElement = document.getElementById('root');
+ const root = createRoot(rootElement);
+ root.render(<App />)
+
+ <App /> vai conter todos os componentes criados na aplicação React e o código acima fará com que ele seja renderizado dentro do index.html rodando no browser.
+
+ State é utilizado para armazenar dados da aplicação que vão ser alterados conforme o usuário interage com ela.
+ -> Toda vez que o estado é atualizado, o react atualiza o conteúdo que é exibido
+
+Event handler
+
+Ao passar uma função para um event handler, deve ser passado uma referencia a função, caso contrário, o React a executa imediatamente no primeiro render
+
+<button onClick={handleClick}>Add animal</button> --> referencia a função
+<button onClick={handleClick()}>Add animal</button> --> () manda o react executar a função
+<button onClick={() => {...}}>Add animal</button> --> está definindo a função dentro da prop, mesma coisa que passar uma referencia
