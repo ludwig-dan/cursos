@@ -1,4 +1,11 @@
 interface SerVivo{
+    // Todo atributo declarado em uma interface é automaticamente:
+    // public static final
+    // Isso significa que ele pertence à interface (static),
+    // pode ser acessado de qualquer lugar (public)
+    // e não pode ser alterado (final).
+    String REINO = "Organismos Vivos";
+
     void respirar();
 
     // método default
@@ -26,7 +33,7 @@ class Cachorro implements Animal{
         System.out.println("Respirando....");
     }
     public void fazerSom(){
-        System.out.println(Animal.nome+" => auau");
+        System.out.println(SerVivo.REINO + " | " +Animal.nome+" => auau");
     }
 }
 
