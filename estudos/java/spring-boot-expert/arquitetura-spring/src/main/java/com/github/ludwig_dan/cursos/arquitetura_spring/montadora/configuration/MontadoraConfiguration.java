@@ -1,0 +1,45 @@
+package com.github.ludwig_dan.cursos.arquitetura_spring.montadora.configuration;
+
+import com.github.ludwig_dan.cursos.arquitetura_spring.montadora.Motor;
+import com.github.ludwig_dan.cursos.arquitetura_spring.montadora.TipoMotor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+
+@Configuration
+public class MontadoraConfiguration {
+    // não é obrigatório por o nome
+    @Bean(name="motor")
+    @Primary // bean primário do tipo caso não seja especificado na implementação
+    public Motor motor(){
+        var motor = new Motor();
+        motor.setCavalos(120);
+        motor.setCilindros(4);
+        motor.setModelo("XPTO-0");
+        motor.setLitragem(2.0);
+        motor.setTipo(TipoMotor.ASPIRADO);
+        return motor;
+    }
+
+    @Bean
+    public Motor motorEletrico(){
+        var motor = new Motor();
+        motor.setCavalos(110);
+        motor.setCilindros(3);
+        motor.setModelo("TH-10");
+        motor.setLitragem(1.4);
+        motor.setTipo(TipoMotor.ELETRICO);
+        return motor;
+    }
+
+    @Bean
+    public Motor motorTurbo(){
+        var motor = new Motor();
+        motor.setCavalos(180);
+        motor.setCilindros(4);
+        motor.setModelo("XPTO-01");
+        motor.setLitragem(1.5);
+        motor.setTipo(TipoMotor.TURBO);
+        return motor;
+    }
+}
