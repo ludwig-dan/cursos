@@ -1,3 +1,5 @@
+import { Fragment } from "react/jsx-runtime";
+
 const Table = ({data, config}) => {
     return (
         <div>
@@ -5,6 +7,9 @@ const Table = ({data, config}) => {
                 <thead>
                     <tr className="border-b-2">
                         {config.map((c, i) => {
+                            if(c.header){
+                                return <Fragment key={i}>{c.header()}</Fragment>
+                            }
                             return (<th key={i}>{c.label}</th>)
                         })}
                     </tr>
