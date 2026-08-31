@@ -15,5 +15,11 @@ public class Aula08ArraysMulti01 {
                 System.out.println(dias[i][j]);
             }
         }
+        System.out.println("----------------");
+        for (int[] dia: dias){
+            for (int d: dia){
+                System.out.println(d);
+            }
+        }
     }
 }
